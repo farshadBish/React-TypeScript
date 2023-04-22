@@ -3,7 +3,7 @@ type PersonsListProps = {
         first: string
         last: string
     }[]
-    random : number[]
+    random : string[]
 }
 
 const PersonList = (props : PersonsListProps) => {
