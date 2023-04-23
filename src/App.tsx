@@ -13,6 +13,7 @@ function App() {
   const personName= {
     first: 'Bruce',
     last: 'Wayne',
+    age: 12,
   }
 
   const nameList = [

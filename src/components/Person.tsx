@@ -2,6 +2,7 @@ type PersonProps = {
     name: {
         first: string
         last: string
+        age: number
     }
 }
 
