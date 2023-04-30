@@ -1,8 +1,7 @@
+import { Name } from "./Person.types"
+
 type PersonsListProps = {
-    names :{
-        first: string
-        last: string
-    }[]
+    names :Name[]
     random : string[]
 }
 

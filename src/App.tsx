@@ -19,15 +19,18 @@ function App() {
   const nameList = [
     {
       first:"Bruce",
-      last:"Wayne"
+      last:"Wayne",
+      age:12
     },
     {
       first:"Clark",
-      last:"Kent"
+      last:"Kent",
+      age:12
     },
     {
       first:"Bruce",
-      last:"Wayne"
+      last:"Wayne",
+      age:12
     },
   ]
 
