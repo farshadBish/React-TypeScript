@@ -6,11 +6,11 @@ type stateTypes = {
     inputValue : string
 }
 type actionTypes = {
-    type : string
+    type : 'TYPING'
     payload: string
 }
 
-const initialstate = {
+const initialstates = {
     inputValue : ""
 
 }
@@ -30,7 +30,7 @@ function reduceFunction(state:stateTypes,action:actionTypes) {
 
 export const UseReducer = () => {
 
-const [state,dispatch] = useReducer(reduceFunction,initialstate);
+const [state,dispatch] = useReducer(reduceFunction,initialstates);
 
 const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
     dispatch({type:"TYPING",payload:e.target.value}) 
