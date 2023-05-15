@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import './App.css';
 import Button from './components/Button';
 import { Container } from './components/Container';
@@ -38,7 +39,6 @@ function App() {
   const random = [
     "2","3","4","5"
   ]
-
 
   return (
     <div className="App">

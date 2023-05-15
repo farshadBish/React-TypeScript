@@ -6,4 +6,12 @@ export type Name = {
 
 export type PersonProps = {
     name: Name
+} 
+
+
+export type fetchedData = {
+    userId: number
+    id: number
+    title: string
+    completed: number
 }
