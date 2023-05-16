@@ -1,10 +1,18 @@
+// import { useTodoContext } from "./contexts/TodoContext";
+
 type GreetProps = {
     name: string
     messageCount?: number
     isLoggedIn: boolean
 }
 
+
 const Greet = (props: GreetProps) => {
+    // const {data,loading,error} = useTodoContext();
+    // useEffect(()=>{
+    //     console.log(data,"this is data",loading,error);
+        
+    // })
     return (
         <div>
             <h2>

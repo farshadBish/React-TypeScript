@@ -1,10 +1,8 @@
-
-import React, { useEffect, useReducer, useState } from 'react'
-import { fetchedData } from './Person.types'
-
+import React, { useEffect, useReducer } from "react"
+import { fetchedData } from "./Person.types"
 
 type reducerStateTypes = {
-    data : fetchedData[]
+    data : fetchedData[] | null
     loading : boolean
     error : any | unknown
 }
@@ -26,9 +24,9 @@ type loadingActionType = {
 type reducerActionTypes = loadingActionType | errorAndDataActionTypes | errorActionType;
 
 const INITIALSTATE = {
-    data : [],
+    data : null,
     loading : false,
-    error : null
+    error : ''
 }
 
 const reducerFunction = (state:reducerStateTypes,action:reducerActionTypes) => {
@@ -65,8 +63,8 @@ const Fetchapi = () => {
     // const [data,setData] = useState<fetchedData[]>([])
     // const [loading,setLoading] = useState<boolean>(false)
     // const [error,setError] = useState< any | unknown>(null)
-
-    const [state,dispatch] = useReducer(reducerFunction,INITIALSTATE); 
+    
+    const [state,dispatch] = useReducer<React.Reducer<reducerStateTypes,reducerActionTypes>>(reducerFunction,INITIALSTATE); 
 
     const fetchData = async() => {
         const url:string = "https://jsonplaceholder.typicode.com/todos";
@@ -78,23 +76,24 @@ const Fetchapi = () => {
                     "Content-Type": "application/json"
                 },
             })
-            const data:[] = await res.json()
-            dispatch({type: 'FetchedSuccesfully', payload: data})
-            console.log(data);
             
+            const data:fetchedData[] = await res.json()
+            
+            dispatch({type: 'FetchedSuccesfully', payload: data})
         } catch (error) {
             dispatch({type:'FetchedFailed',payload: error})
         }
     }
     useEffect(()=>{
+        console.log("this is data");
         fetchData();
     },[])
 
-    const data = state.data
-    const loading = state.loading
-    const error = state.error
+    // let data = state.data
+    // let loading = state.loading
+    // let error = state.error
 
-  return {data , loading , error}
+  return {data : state.data , loading : state.loading , error : state.error}   
 }
 
 export default Fetchapi;
