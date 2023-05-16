@@ -1,22 +1,19 @@
-import { createContext , useContext } from "react";
+import { useContext , createContext } from "react";
 import Fetchapi from "../Fetchapi";
 
-const { data, loading , error} = Fetchapi();
+const { data , loading , error } = Fetchapi()
 
-const TodoContext = createContext({ data, loading , error})
+const TodoContext = createContext(Fetchapi());
 
-type propsType = {
+type PropsTypes = {
     children: React.ReactNode
 }
-export function TodoProvider({children}: propsType){
 
-    return(
-        <TodoContext.Provider value={{data , error , loading}}>
-            {children}
-        </TodoContext.Provider>
-    )
-}
+export const TodoProvider = ({children}:PropsTypes) => {
 
-export function useTodoContext(){
-    return useContext(TodoContext)
+    <TodoContext.Provider value={{data , loading , error}}>
+        {children}
+    </TodoContext.Provider>
+
 }
+export const useTodoContext = () => useContext(TodoContext);
