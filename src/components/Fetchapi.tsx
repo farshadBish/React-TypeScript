@@ -87,13 +87,7 @@ const Fetchapi = () => {
     useEffect(()=>{
         console.log("this is data");
         fetchData();
-    },[])
-
-    // let data = state.data
-    // let loading = state.loading
-    // let error = state.error
-
-  return {data : state.data , loading : state.loading , error : state.error}   
+    },[])  
 }
 
 export default Fetchapi;

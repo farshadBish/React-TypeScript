@@ -1,5 +1,5 @@
-// import { useTodoContext } from "./contexts/TodoContext";
-
+import { useContext, useEffect } from "react";
+import { StateContext } from "./contexts/TodoContext";
 type GreetProps = {
     name: string
     messageCount?: number
@@ -8,11 +8,12 @@ type GreetProps = {
 
 
 const Greet = (props: GreetProps) => {
-    // const {data,loading,error} = useTodoContext();
-    // useEffect(()=>{
-    //     console.log(data,"this is data",loading,error);
-        
-    // })
+
+    const todoData = useContext(StateContext)
+
+    useEffect(()=>{
+        console.log(todoData.data,"this is data");
+    })
     return (
         <div>
             <h2>
