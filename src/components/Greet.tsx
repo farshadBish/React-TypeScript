@@ -18,7 +18,7 @@ const Greet = (props: GreetProps) => {
         <div>
             <h2>
             {
-                props.isLoggedIn ? "Welcome {props.name}! you have {props.messageCount} unread massages" : "Welcome Guest"
+                props.isLoggedIn ? `Welcome ${props.name}! you have ${props.messageCount} unread massages` : `Welcome Guest`
             }
             </h2>
         </div>

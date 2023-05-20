@@ -63,7 +63,7 @@ type PropsTypes = {
     children: React.ReactNode
 }
 export const StateContext = createContext<reducerStateTypes>(INITIALSTATE);
-export const DispatchContext = createContext<Dispatch<reducerActionTypes> | reducerActionTypes>({type : 'LoadingStarts'})
+export const DispatchContext = createContext({} as Dispatch<reducerActionTypes>)
 
 export const TodoProvider = ({children}:PropsTypes) => {
     const [state,dispatch] = useReducer<React.Reducer<reducerStateTypes,reducerActionTypes>>(reducerFunction,INITIALSTATE); 
