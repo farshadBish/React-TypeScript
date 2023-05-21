@@ -61,8 +61,8 @@ const reducerFunction = (state:reducerStateTypes,action:reducerActionTypes) => {
 
 type PropsTypes = {
     children: React.ReactNode
-}
-export const StateContext = createContext<reducerStateTypes>(INITIALSTATE);
+} 
+export const StateContext = createContext({} as reducerStateTypes);
 export const DispatchContext = createContext({} as Dispatch<reducerActionTypes>)
 
 export const TodoProvider = ({children}:PropsTypes) => {
