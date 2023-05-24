@@ -5,12 +5,12 @@ import { useCallback, useEffect, useMemo , useState } from "react"
 
 
 const UseMemoTest = () => {
-    const getArray = () => {
+    const getArray = useCallback(() => {
         for (let i = 0; i < 1000000000; i++) {
             
         }
-        return 2;
-    }
+        return ['drake', 'jake'];
+    },[])
 
     const fib = useCallback((n :number) :number => {
         return (n <= 1) ? n : fib(n - 1) + fib(n - 2);
@@ -20,11 +20,12 @@ const UseMemoTest = () => {
     const [random,setRandom] = useState<string>('')
 
     const fibNumber = useMemo(()=>fib(Number(userNumber)),[userNumber,fib])
+    const arrayAnswer = useMemo(()=> getArray(),[getArray])
     useEffect(()=>{
-        getArray();
         console.log("it did something");
+        console.log(arrayAnswer);
         
-    },[getArray])
+    },[arrayAnswer])
 
   return (
     <main>
